@@ -1,25 +1,22 @@
-const ratings = document.querySelectorAll('.raing')
-const ratingsContainer = document.querySelector('.-container')
-const sendBtn = document.querySelector('#')
-const panel = document.querySelector('#')
+const ratingsEl = document.querySelectorAll('.rating');
+const sendBtn = document.querySelector('#send');
+const panel = document.querySelector('#panel');
 
+ratingsEl.forEach(el => {
+    el.addEventListener('click', () => {
+        ratingsEl.forEach(innerEl => {
+            innerEl.classList.remove('active');
+        });
 
-ratingsContainer.addEventListener('click', (e) => {
-    if(e.target.parentNode.classList.contains('rating')) {
-        removeActive()
-        e.target.parentNode.classList.add('active')
-        selectedRating = e.target.nextElementSibling.innerHTML
-    }
-})
+        el.classList.add('active');
+    });
+});
 
-sendBtn.addEventListener('', (e) => {
+sendBtn.addEventListener('click', () => {
     panel.innerHTML = `
-
-    `
-})
-
-function removeActive() {
-{
-        ratings[i].classList.remove('active')
-    }
-}
+		<i class="fas fa-heart"></i>
+		<strong>Thank you, Florin!</strong>
+		<p>We'll use your feedback to improve our customer support performance.</p>
+		<button class="btn">Done</button>
+	`;
+});
